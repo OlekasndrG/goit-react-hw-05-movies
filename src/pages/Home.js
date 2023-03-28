@@ -20,14 +20,14 @@ const Home = () => {
                `https:api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
             );
             setTrending(res.data.results);
-            setIsLoading(false);
+
             return res.data;
          } catch (error) {
             setError(error.message);
             console.log(error);
          }
       };
-      fetchTrending();
+      fetchTrending().finally(() => setIsLoading(false));
    }, []);
    return (
       <div>
