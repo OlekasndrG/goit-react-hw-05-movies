@@ -44,8 +44,8 @@ const MovieCast = () => {
                      <img
                         src={
                            movie.profile_path
-                              ? `https://www.themoviedb.org/t/p/original${movie.profile_path}`
-                              : 'https://www.themoviedb.org/t/p/original/q9qKbux5Jo76Sj8g3luxBt6rYtz.jpg'
+                              ? `https://www.themoviedb.org/t/p/w500${movie.profile_path}`
+                              : 'https://www.themoviedb.org/t/p/w500/q9qKbux5Jo76Sj8g3luxBt6rYtz.jpg'
                         }
                         width="250px"
                         alt={movie.name}

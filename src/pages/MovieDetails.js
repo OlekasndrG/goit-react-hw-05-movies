@@ -47,8 +47,8 @@ const MovieDetails = () => {
                   <img
                      src={
                         movie.poster_path
-                           ? `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`
-                           : 'https://www.themoviedb.org/t/p/original/q9qKbux5Jo76Sj8g3luxBt6rYtz.jpg'
+                           ? `https://www.themoviedb.org/t/p/w500${movie.poster_path}`
+                           : 'https://www.themoviedb.org/t/p/w500/q9qKbux5Jo76Sj8g3luxBt6rYtz.jpg'
                      }
                      width="280px"
                      alt={movie.title}
