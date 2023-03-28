@@ -4,6 +4,7 @@ import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Loader from './Loader/Loader';
 // const API_KEY = 'ba542000abc8f23c21b9168c238e4f34';
 
 const MovieCast = () => {
@@ -34,7 +35,7 @@ const MovieCast = () => {
 
    return (
       <div>
-         {isLoading && <p>Loading</p>}
+         {isLoading && <Loader/>}
          {error && <p> {error}</p>}
          <ul>
             {movie.map(movie => {

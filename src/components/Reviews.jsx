@@ -1,9 +1,10 @@
 // https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=ba542000abc8f23c21b9168c238e4f34&language=en-US&page=1
 
 import axios from 'axios';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Loader from './Loader/Loader';
 // import { lazy, Suspense } from 'react';
 
 // const MyComponent = lazy(() => import('path/to/MyComponent'));
@@ -34,23 +35,21 @@ const MovieReviews = () => {
 
    return (
       <div>
-         {isLoading && <p>Loading</p>}
          {error && <p>Pomulka : {error}</p>}
+         {isLoading && <Loader />}
          <ul>
-            {movie.length > 0 ? (
-               movie.map(movie => {
-                  return (
-                     <li key={nanoid()}>
-                        <div>
-                           <h3>{movie.author}</h3>
-                           <p>{movie.content}</p>
-                        </div>
-                     </li>
-                  );
-               })
-            ) : (
-               <p>Немає відгуків</p>
-            )}
+            {movie.length > 0
+               ? movie.map(movie => {
+                    return (
+                       <li key={movie.id}>
+                          <div>
+                             <h3>{movie.author}</h3>
+                             <p>{movie.content}</p>
+                          </div>
+                       </li>
+                    );
+                 })
+               : !isLoading && <p>Немає відгуків</p>}
          </ul>
       </div>
    );
