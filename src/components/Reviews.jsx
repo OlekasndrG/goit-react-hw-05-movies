@@ -25,6 +25,9 @@ const MovieReviews = () => {
                ` https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=ba542000abc8f23c21b9168c238e4f34&language=en-US&page=1`
             );
             setMovie(res.data.results);
+            if (!res.data.results.length) {
+               return setError('Відсутні відугки');
+            }
             // return res.data;
          } catch (error) {
             return setError(error.message);
@@ -35,21 +38,19 @@ const MovieReviews = () => {
 
    return (
       <div>
-         {error && <p>Pomulka : {error}</p>}
+         {error && <p> {error}</p>}
          {isLoading && <Loader />}
          <ul>
-            {movie.length > 0
-               ? movie.map(movie => {
-                    return (
-                       <li key={movie.id}>
-                          <div>
-                             <h3>{movie.author}</h3>
-                             <p>{movie.content}</p>
-                          </div>
-                       </li>
-                    );
-                 })
-               : !isLoading && <p>Немає відгуків</p>}
+            {movie.map(movie => {
+               return (
+                  <li key={movie.id}>
+                     <div>
+                        <h3>{movie.author}</h3>
+                        <p>{movie.content}</p>
+                     </div>
+                  </li>
+               );
+            })}
          </ul>
       </div>
    );
