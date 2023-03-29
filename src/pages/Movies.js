@@ -17,9 +17,7 @@ const Movies = () => {
    const [isLoading, setIsLoading] = useState(false);
    const nameFromInput = searchParams.get('query') ?? '';
    const location = useLocation();
-   const [inputQuery, setInputQuery] = useState(() => {
-      return nameFromInput;
-   });
+   const [inputQuery, setInputQuery] = useState(() => nameFromInput);
 
    useEffect(() => {
       if (inputQuery === '') {
@@ -49,7 +47,6 @@ const Movies = () => {
          setIsLoading(false);
       });
    }, [inputQuery]);
-
 
    const handleSearchSubmit = querySearch => {
       if (querySearch === '') {

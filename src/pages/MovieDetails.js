@@ -25,7 +25,7 @@ const MovieDetails = () => {
                `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
             );
             setMovie(res.data);
-            console.log(res.data);
+          
 
             return res.data;
          } catch (error) {
